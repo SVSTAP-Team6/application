@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsBatteryFull, BsBarChartFill } from "react-icons/bs";
 import { AiOutlineWifi } from "react-icons/ai";
 import { Navbar } from "../components";
 import { Basepage } from "../pages";
+
+import { useStateContext } from "../contexts/ContextProvider";
 
 const SystemBar = () => {
 	let today = new Date();
@@ -21,6 +23,8 @@ const SystemBar = () => {
 	);
 };
 const Layout = () => {
+	const { riseup } = useStateContext();
+
 	return (
 		<div className="flex justify-center bg-gray-300 h-screen w-screen">
 			<div className="flex flex-col w-425 h-725 border-4 my-auto bg-gray-100 border-black rounded-2xl p-3 p-t-2">
@@ -29,6 +33,9 @@ const Layout = () => {
 					<Basepage />
 				</div>
 				<Navbar />
+				{riseup && (
+					<div className="absolute w-[394px] h-[91vh] bg-black">riesup</div>
+				)}
 			</div>
 		</div>
 	);

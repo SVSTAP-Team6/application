@@ -2,14 +2,18 @@ import React, { createContext, useContext, useState } from "react";
 
 const StateContext = createContext();
 export const ContextProvider = ({ children }) => {
-  return (
-    <StateContext.Provider
-      value={{
-      }}
-    >
-      {children}
-    </StateContext.Provider>
-  );
+	const [riseup, setRiseup] = useState(false);
+
+	return (
+		<StateContext.Provider
+			value={{
+				riseup: riseup,
+				setRiseup: setRiseup,
+			}}
+		>
+			{children}
+		</StateContext.Provider>
+	);
 };
 
 export const useStateContext = () => useContext(StateContext);

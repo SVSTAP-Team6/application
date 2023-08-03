@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { Card } from "../components";
 
+import { useStateContext } from "../contexts/ContextProvider";
+
 const options = [
 	{
 		name: "Standard",
@@ -31,6 +33,8 @@ const grains = [
 const Order = () => {
 	const [selectedGrain, setSelectedGrain] = useState(0);
 	const [orderOption, setOrderOption] = useState("standard"); // standard | ai | customized
+
+	const { setRiseup } = useStateContext();
 
 	return (
 		<>
@@ -63,7 +67,10 @@ const Order = () => {
 					{/* body */}
 					{grains.map((grain) => (
 						<Card
-							onClick={() => setSelectedGrain(grain.id)}
+							onClick={() => {
+								setSelectedGrain(grain.id);
+								setRiseup(true);
+							}}
 							title={grain.title}
 							desc={grain.desc}
 							price={grain.price}
