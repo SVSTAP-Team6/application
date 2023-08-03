@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import { BsBatteryFull, BsBarChartFill } from "react-icons/bs";
-import { AiOutlineWifi } from "react-icons/ai";
-import { Navbar } from "../components";
+import React from "react";
+import { Routes, Navigate, Route } from "react-router-dom";
+import { Home } from ".";
 
-const Basepage = () => {
+const BasePage = () => {
     return (
-        <>
-            1
-        </>
-    );
-}
+        <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />
+            {/* <Route path="/" element={<Dashboard />} /> */}
 
-export default Basepage;
+            <Route path="/home" element={<Home />} />
+            
+
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+        </Routes>
+    );
+};
+
+export default BasePage;

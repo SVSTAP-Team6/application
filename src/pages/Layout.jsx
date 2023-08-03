@@ -25,7 +25,7 @@ const Layout = () => {
         <div className="flex justify-center bg-gray-300 h-screen w-screen">
             <div className="flex flex-col w-425 h-725 border-4 my-auto bg-white border-black rounded-2xl p-3 p-t-2">
                 <SystemBar />
-                <div className="flex flex-1 border-1 flex-col">
+                <div className="flex flex-1 border-1 flex-col p-4">
                     <Basepage />
                 </div>
                 <Navbar />
