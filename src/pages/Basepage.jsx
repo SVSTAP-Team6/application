@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Navigate, Route } from "react-router-dom";
-import { Home } from ".";
+import { Home, Order} from ".";
 
 const BasePage = () => {
     return (
@@ -9,6 +9,7 @@ const BasePage = () => {
             {/* <Route path="/" element={<Dashboard />} /> */}
 
             <Route path="/home" element={<Home />} />
+            <Route path="/order" element={<Order />} />
             
 
             <Route path="*" element={<Navigate to="/dashboard" />} />
