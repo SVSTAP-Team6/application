@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { BiMap } from "react-icons/bi";
 import { FiMenu } from "react-icons/fi";
+import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { AiOutlineSearch, AiOutlineControl, AiOutlineDollarCircle } from "react-icons/ai";
 import strawberry from "../images/strawberry.png";
 import misu from "../images/misu.png";
 import pineapple from "../images/pineapple.png";
+import { Link, NavLink } from "react-router-dom";
 
 const Home = () => {
     return (
@@ -65,7 +67,26 @@ const Home = () => {
                     <div className="flex justify-center items-center ml-2">
                         <img src={strawberry} className="rounded-full border-4 w-28 h-28" />
                     </div>
+
                 </div>
+
+                {/* 새 구독 */}
+                <NavLink
+                    to="/order"
+                    //   style={({ isActive }) => ({
+                    //     backgroundColor: isActive ? mainColor : "",
+                    //   })}
+                    className="w-full">
+                    <div className="flex rounded-2xl mt-2 justify-center items-center w-full p-3 gap-2 bg-[#FFB01D] text-slate-50	">
+                        <div>
+                            <MdOutlineAddCircleOutline />
+                        </div>
+                        <div>
+                            New Subscription
+                        </div>
+                    </div>
+                </NavLink>
+
 
                 {/* 구독 */}
                 <div className="flex flex-col justify-center mt-4 w-full">
