@@ -5,10 +5,14 @@ const Card = ({
 	desc = "desc",
 	price = "0.00",
 	imgSrc = "https://watermark.lovepik.com/photo/20211208/large/lovepik-whole-grains-picture_501616030.jpg",
+	...props
 }) => {
 	return (
 		<>
-			<div className="w-full p-2 rounded-2xl bg-white flex items-center gap-2">
+			<div
+				className="w-full p-2 rounded-2xl bg-white flex items-center gap-2 cursor-pointer hover:brightness-95 transition"
+				{...props}
+			>
 				<img
 					className=" rounded-full w-24 h-24 m-2 object-cover"
 					src={imgSrc}

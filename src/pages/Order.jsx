@@ -21,6 +21,7 @@ const options = [
 
 const grains = [
 	{
+		id: 1,
 		title: "Plain Powder",
 		desc: "This Powder is Plain and simple. Whoever like this without burden.",
 		price: "7.50",
@@ -28,46 +29,50 @@ const grains = [
 ];
 
 const Order = () => {
+	const [selectedGrain, setSelectedGrain] = useState(0);
 	const [orderOption, setOrderOption] = useState("standard"); // standard | ai | customized
 
 	return (
-		<div className="flex flex-col itmes-stretch">
-			<div className="rounded border-1 shadow-neutral-400 w-full h-full flex justify-center flex-col gap-4">
-				<p className=" font-semibold text-[1.1rem]">
-					We think you might enjoy these specially selected powders
-				</p>
+		<>
+			<div className="flex flex-col itmes-stretch">
+				<div className="rounded  w-full h-full flex justify-center flex-col gap-4">
+					<p className=" font-semibold text-[1.1rem]">
+						We think you might enjoy these specially selected powders
+					</p>
 
-				{/* header */}
-				<div className="w-full flex justify-between">
-					{options.map((option) => (
-						<button
-							className={clsx([
-								"w-fit min-w-[4rem] rounded-2xl p-2 mx-2 hover:brightness-90 transition",
-								orderOption === option.value
-									? "bg-orange-400 text-white"
-									: "bg-white text-gray-400",
-							])}
-							onClick={() => setOrderOption(option.value)}
-						>
-							{option.name}
+					{/* header */}
+					<div className="w-full flex justify-between">
+						{options.map((option) => (
+							<button
+								className={clsx([
+									"w-fit min-w-[4rem] rounded-2xl p-2 mx-2 hover:brightness-90 transition",
+									orderOption === option.value
+										? "bg-orange-400 text-white"
+										: "bg-white text-gray-400",
+								])}
+								onClick={() => setOrderOption(option.value)}
+							>
+								{option.name}
+							</button>
+						))}
+						<button className=" rounded-xl w-10 h-10 bg-white flex justify-center items-center text-gray-400">
+							<AiOutlineUnorderedList></AiOutlineUnorderedList>
 						</button>
-					))}
-					<button className=" rounded-xl w-10 h-10 bg-white flex justify-center items-center text-gray-400">
-						<AiOutlineUnorderedList></AiOutlineUnorderedList>
-					</button>
-				</div>
+					</div>
 
-				{/* body */}
-				{grains.map((grain) => (
-					<Card
-						title={grain.title}
-						desc={grain.desc}
-						price={grain.price}
-						imgSrc={grain.imgSrc}
-					></Card>
-				))}
+					{/* body */}
+					{grains.map((grain) => (
+						<Card
+							onClick={() => setSelectedGrain(grain.id)}
+							title={grain.title}
+							desc={grain.desc}
+							price={grain.price}
+							imgSrc={grain.imgSrc}
+						></Card>
+					))}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
